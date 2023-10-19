@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <script>
+        fetch("https://ci-swapi.herokuapp.com/api/")
+            // chaining two then methods onto the fetch method...
+            // get response, convert it into json and store in response variable
+            .then(response => response.json())
+            // set html content as the returned data
+            .then(data => {
+                document.getElementById("content").innerText = data;
+            })
+    </script>
+</body>
+
+</html>
