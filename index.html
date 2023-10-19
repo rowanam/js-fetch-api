@@ -12,12 +12,19 @@
 
     <script>
         fetch("https://ci-swapi.herokuapp.com/api/")
-            // chaining two then methods onto the fetch method...
+            // chaining two then methods onto the fetch method
+            // this is done because two Promises are returned -
+            // one from the fetch method, and one from the first then method
+            // they both need to be resolved, hence two then methods
             // get response, convert it into json and store in response variable
             .then(response => response.json())
             // set html content as the returned data
             .then(data => {
                 document.getElementById("content").innerText = data;
+            })
+            // catch errors if Promises can't be fulfilled
+            .catch((e) => {
+                console.error("Error: ", e);
             })
     </script>
 </body>
