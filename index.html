@@ -19,13 +19,15 @@
             // get response, convert it into json and store in response variable
             .then(response => response.json())
             // set html content as the returned data
-            .then(data => {
-                document.getElementById("content").innerText = data;
-            })
+            .then(data => displayData(data))
             // catch errors if Promises can't be fulfilled
             .catch((e) => {
                 console.error("Error: ", e);
             })
+        
+        function displayData(data) {
+            document.getElementById("content").innerText = data;
+        }
     </script>
 </body>
 
